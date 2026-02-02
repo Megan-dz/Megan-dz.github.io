@@ -1,27 +1,456 @@
-<!-- data_structures.html -->
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Core Data Structures</title>
+    <title>Core Data Structures in Python - Detailed Study Notes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #e7e7e7;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Core Data Structures in Python</h1>
-    <p>Python provides several built-in data structures for storing and manipulating data efficiently.</p>
+    <h1>Core Data Structures in Python: Detailed Study Notes</h1>
+    <p>Python offers a variety of built-in data structures designed for efficient data storage, retrieval, and manipulation. These include sequences like lists and tuples, mappings like dictionaries, and collections like sets. This guide provides in-depth explanations, examples, common operations, use cases, and comparisons to help you master them.</p>
     
-    <h2>Lists</h2>
-    <p>Lists are mutable sequences. Example: <code>my_list = [1, 2, 3]</code>. You can add, remove, or modify elements.</p>
+    <h2>1. Lists</h2>
+    <p>Lists are ordered, mutable collections of items that can hold elements of different types. They are defined using square brackets <code>[]</code> and are one of the most versatile data structures in Python.</p>
     
-    <h2>Tuples</h2>
-    <p>Tuples are immutable sequences. Example: <code>my_tuple = (1, 2, 3)</code>. Useful for fixed data.</p>
+    <h3>Key Characteristics</h3>
+    <ul>
+        <li><strong>Mutable</strong>: Elements can be added, removed, or modified after creation.</li>
+        <li><strong>Ordered</strong>: Maintains the insertion order; supports indexing and slicing.</li>
+        <li><strong>Dynamic Size</strong>: Can grow or shrink as needed.</li>
+        <li><strong>Duplicates Allowed</strong>: Can contain duplicate elements.</li>
+        <li><strong>Heterogeneous</strong>: Can store mixed data types (e.g., integers, strings, objects).</li>
+    </ul>
     
-    <h2>Dictionaries</h2>
-    <p>Dictionaries store key-value pairs. Example: <code>my_dict = {'name': 'Alice', 'age': 30}</code>. Fast lookups by key.</p>
+    <h3>Creation and Basic Examples</h3>
+    <pre><code># Empty list
+empty_list = []
+
+# List with elements
+my_list = [1, 2, 3, 'apple', True]
+
+# List from other iterables
+list_from_tuple = list((4, 5, 6))  # [4, 5, 6]
+</code></pre>
     
-    <h2>Sets</h2>
-    <p>Sets are unordered collections of unique items. Example: <code>my_set = {1, 2, 3}</code>. Great for membership testing and removing duplicates.</p>
+    <h3>Common Operations</h3>
+    <table>
+        <tr>
+            <th>Operation</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Access by index</td>
+            <td><code>my_list[0]  # 1</code></td>
+            <td>Retrieve element at position (0-based).</td>
+        </tr>
+        <tr>
+            <td>Slicing</td>
+            <td><code>my_list[1:3]  # [2, 3]</code></td>
+            <td>Get a sublist (start:end, exclusive end).</td>
+        </tr>
+        <tr>
+            <td>Append</td>
+            <td><code>my_list.append(4)</code></td>
+            <td>Add element to the end.</td>
+        </tr>
+        <tr>
+            <td>Insert</td>
+            <td><code>my_list.insert(1, 'new')</code></td>
+            <td>Add element at specific index.</td>
+        </tr>
+        <tr>
+            <td>Remove</td>
+            <td><code>my_list.remove(2)</code></td>
+            <td>Remove first occurrence of value.</td>
+        </tr>
+        <tr>
+            <td>Pop</td>
+            <td><code>my_list.pop(0)</code></td>
+            <td>Remove and return element at index (default last).</td>
+        </tr>
+        <tr>
+            <td>Sort</td>
+            <td><code>my_list.sort()</code></td>
+            <td>Sort in place (for comparable elements).</td>
+        </tr>
+        <tr>
+            <td>Reverse</td>
+            <td><code>my_list.reverse()</code></td>
+            <td>Reverse the order in place.</td>
+        </tr>
+        <tr>
+            <td>Length</td>
+            <td><code>len(my_list)</code></td>
+            <td>Get number of elements.</td>
+        </tr>
+    </table>
+    
+    <h3>Use Cases</h3>
+    <ul>
+        <li>Storing dynamic collections, like user inputs or results from loops.</li>
+        <li>Implementing stacks (LIFO) or queues (FIFO) using append/pop.</li>
+        <li>List comprehensions for concise creation: <code>[x**2 for x in range(5)]  # [0, 1, 4, 9, 16]</code></li>
+    </ul>
+    
+    <h3>Pros and Cons</h3>
+    <ul>
+        <li><strong>Pros</strong>: Flexible, easy to use, supports many methods.</li>
+        <li><strong>Cons</strong>: Slower for large datasets compared to arrays (use NumPy for performance).</li>
+    </ul>
+    
+    <h2>2. Tuples</h2>
+    <p>Tuples are ordered, immutable collections similar to lists but cannot be modified after creation. They are defined using parentheses <code>()</code> and are useful for fixed data.</p>
+    
+    <h3>Key Characteristics</h3>
+    <ul>
+        <li><strong>Immutable</strong>: Cannot change elements once created (hashable, can be keys in dicts).</li>
+        <li><strong>Ordered</strong>: Supports indexing and slicing like lists.</li>
+        <li><strong>Duplicates Allowed</strong>: Can contain duplicates.</li>
+        <li><strong>Heterogeneous</strong>: Mixed types allowed.</li>
+    </ul>
+    
+    <h3>Creation and Basic Examples</h3>
+    <pre><code># Empty tuple
+empty_tuple = ()
+
+# Tuple with elements
+my_tuple = (1, 2, 3, 'banana', False)
+
+# Single-element tuple (note the comma)
+single = (42,)
+
+# Tuple unpacking
+a, b = (1, 2)  # a=1, b=2
+</code></pre>
+    
+    <h3>Common Operations</h3>
+    <table>
+        <tr>
+            <th>Operation</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Access by index</td>
+            <td><code>my_tuple[1]  # 2</code></td>
+            <td>Retrieve element.</td>
+        </tr>
+        <tr>
+            <td>Slicing</td>
+            <td><code>my_tuple[0:2]  # (1, 2)</code></td>
+            <td>Get subtuple.</td>
+        </tr>
+        <tr>
+            <td>Concatenation</td>
+            <td><code>(1, 2) + (3, 4)  # (1, 2, 3, 4)</code></td>
+            <td>Combine tuples.</td>
+        </tr>
+        <tr>
+            <td>Count</td>
+            <td><code>my_tuple.count(2)</code></td>
+            <td>Count occurrences of value.</td>
+        </tr>
+        <tr>
+            <td>Index</td>
+            <td><code>my_tuple.index('banana')</code></td>
+            <td>Find index of first occurrence.</td>
+        </tr>
+        <tr>
+            <td>Length</td>
+            <td><code>len(my_tuple)</code></td>
+            <td>Get number of elements.</td>
+        </tr>
+    </table>
+    
+    <h3>Use Cases</h3>
+    <ul>
+        <li>Returning multiple values from functions.</li>
+        <li>As keys in dictionaries (since immutable).</li>
+        <li>Storing constant data, like coordinates: <code>point = (x, y)</code></li>
+    </ul>
+    
+    <h3>Pros and Cons</h3>
+    <ul>
+        <li><strong>Pros</strong>: Faster than lists, memory-efficient, protects data from changes.</li>
+        <li><strong>Cons</strong>: Cannot modify; for changes, convert to list first.</li>
+    </ul>
+    
+    <h2>3. Dictionaries</h2>
+    <p>Dictionaries (dicts) are unordered collections of key-value pairs, where keys are unique and immutable. Defined using curly braces <code>{}</code>, they provide fast lookups.</p>
+    
+    <h3>Key Characteristics</h3>
+    <ul>
+        <li><strong>Mutable</strong>: Can add, remove, or update pairs.</li>
+        <li><strong>Unordered</strong>: Insertion order preserved since Python 3.7, but not indexed by position.</li>
+        <li><strong>Unique Keys</strong>: No duplicate keys; values can duplicate.</li>
+        <li><strong>Keys Immutable</strong>: Strings, numbers, tuples (not lists).</li>
+    </ul>
+    
+    <h3>Creation and Basic Examples</h3>
+    <pre><code># Empty dict
+empty_dict = {}
+
+# Dict with elements
+my_dict = {'name': 'Alice', 'age': 30, 'city': 'New York'}
+
+# From lists of pairs
+from_pairs = dict([('key1', 'val1'), ('key2', 'val2')])
+</code></pre>
+    
+    <h3>Common Operations</h3>
+    <table>
+        <tr>
+            <th>Operation</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Access by key</td>
+            <td><code>my_dict['name']  # 'Alice'</code></td>
+            <td>Retrieve value (KeyError if missing).</td>
+        </tr>
+        <tr>
+            <td>Get with default</td>
+            <td><code>my_dict.get('age', 0)  # 30</code></td>
+            <td>Safe access with fallback.</td>
+        </tr>
+        <tr>
+            <td>Add/Update</td>
+            <td><code>my_dict['job'] = 'Engineer'</code></td>
+            <td>Set value for key.</td>
+        </tr>
+        <tr>
+            <td>Delete</td>
+            <td><code>del my_dict['city']</code></td>
+            <td>Remove key-value pair.</td>
+        </tr>
+        <tr>
+            <td>Pop</td>
+            <td><code>my_dict.pop('age')</code></td>
+            <td>Remove and return value.</td>
+        </tr>
+        <tr>
+            <td>Keys/Views</td>
+            <td><code>list(my_dict.keys())</code></td>
+            <td>Get all keys.</td>
+        </tr>
+        <tr>
+            <td>Values</td>
+            <td><code>list(my_dict.values())</code></td>
+            <td>Get all values.</td>
+        </tr>
+        <tr>
+            <td>Items</td>
+            <td><code>list(my_dict.items())</code></td>
+            <td>Get key-value pairs.</td>
+        </tr>
+    </table>
+    
+    <h3>Use Cases</h3>
+    <ul>
+        <li>Storing configurations or user profiles.</li>
+        <li>Counting frequencies: <code>from collections import Counter</code></li>
+        <li>JSON-like data handling.</li>
+    </ul>
+    
+    <h3>Pros and Cons</h3>
+    <ul>
+        <li><strong>Pros</strong>: O(1) average lookup time, flexible mapping.</li>
+        <li><strong>Cons</strong>: Higher memory usage, keys must be hashable.</li>
+    </ul>
+    
+    <h2>4. Sets</h2>
+    <p>Sets are unordered collections of unique, immutable elements. Defined using curly braces <code>{}</code> or <code>set()</code>, they are optimized for membership testing and set operations.</p>
+    
+    <h3>Key Characteristics</h3>
+    <ul>
+        <li><strong>Mutable</strong>: Can add or remove elements.</li>
+        <li><strong>Unordered</strong>: No indexing or order guaranteed.</li>
+        <li><strong>Unique Elements</strong>: Automatically removes duplicates.</li>
+        <li><strong>Elements Immutable</strong>: Like dict keys (no lists).</li>
+    </ul>
+    
+    <h3>Creation and Basic Examples</h3>
+    <pre><code># Empty set (note: {} is empty dict)
+empty_set = set()
+
+# Set with elements
+my_set = {1, 2, 3, 'apple'}
+
+# From list (removes duplicates)
+unique = set([1, 2, 2, 3])  # {1, 2, 3}
+</code></pre>
+    
+    <h3>Common Operations</h3>
+    <table>
+        <tr>
+            <th>Operation</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Add</td>
+            <td><code>my_set.add(4)</code></td>
+            <td>Add element (ignores if exists).</td>
+        </tr>
+        <tr>
+            <td>Remove</td>
+            <td><code>my_set.remove(2)</code></td>
+            <td>Remove element (KeyError if missing).</td>
+        </tr>
+        <tr>
+            <td>Discard</td>
+            <td><code>my_set.discard(5)</code></td>
+            <td>Remove if exists, no error.</td>
+        </tr>
+        <tr>
+            <td>Pop</td>
+            <td><code>my_set.pop()</code></td>
+            <td>Remove and return arbitrary element.</td>
+        </tr>
+        <tr>
+            <td>Union</td>
+            <td><code>{1,2} | {2,3}  # {1,2,3}</code></td>
+            <td>Combine sets.</td>
+        </tr>
+        <tr>
+            <td>Intersection</td>
+            <td><code>{1,2} & {2,3}  # {2}</code></td>
+            <td>Common elements.</td>
+        </tr>
+        <tr>
+            <td>Difference</td>
+            <td><code>{1,2} - {2,3}  # {1}</code></td>
+            <td>Elements in first but not second.</td>
+        </tr>
+        <tr>
+            <td>Membership</td>
+            <td><code>1 in my_set</code></td>
+            <td>Check if element exists (fast).</td>
+        </tr>
+    </table>
+    
+    <h3>Use Cases</h3>
+    <ul>
+        <li>Removing duplicates from lists: <code>unique_list = list(set(my_list))</code></li>
+        <li>Membership testing in large datasets.</li>
+        <li>Set operations for data analysis (e.g., common friends).</li>
+    </ul>
+    
+    <h3>Pros and Cons</h3>
+    <ul>
+        <li><strong>Pros</strong>: O(1) membership checks, efficient for uniqueness.</li>
+        <li><strong>Cons</strong>: No order, cannot store mutable elements.</li>
+    </ul>
+    
+    <h2>Comparison of Data Structures</h2>
+    <table>
+        <tr>
+            <th>Structure</th>
+            <th>Mutable</th>
+            <th>Ordered</th>
+            <th>Duplicates</th>
+            <th>Indexing</th>
+            <th>Best For</th>
+        </tr>
+        <tr>
+            <td>List</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Dynamic sequences</td>
+        </tr>
+        <tr>
+            <td>Tuple</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Fixed data, hashing</td>
+        </tr>
+        <tr>
+            <td>Dict</td>
+            <td>Yes</td>
+            <td>Insertion (3.7+)</td>
+            <td>No (keys)</td>
+            <td>By key</td>
+            <td>Key-value mappings</td>
+        </tr>
+        <tr>
+            <td>Set</td>
+            <td>Yes</td>
+            <td>No</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Uniqueness, sets ops</td>
+        </tr>
+    </table>
+    
+    <h2>Advanced Tips</h2>
+    <ul>
+        <li>Use <code>collections</code> module for specialized types: defaultdict, OrderedDict, Counter, deque.</li>
+        <li>For performance: Lists/tuples for sequences, dicts/sets for lookups.</li>
+        <li>Memory: Tuples use less than lists; sets/dicts use hashing.</li>
+        <li>Comprehensions: Dict <code>{k: v*2 for k,v in my_dict.items()}</code>, Set <code>{x**2 for x in range(5)}</code></li>
+    </ul>
+    
+    <p>For more practice, try implementing algorithms like sorting or searching using these structures.</p>
     
     <a href="Topics.html">Back to Topics</a>
 </body>
 </html>
+```
