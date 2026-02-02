@@ -2,17 +2,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Topics</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Learning Hub</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(135deg, #0f4c75, #3282b8);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px 50px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+      color: #eaf6ff;
+    }
+
+    p {
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      color: #dbefff;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin: 15px 0;
+    }
+
+    a {
+      display: block;
+      padding: 14px 20px;
+      background-color: #1b6ca8;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.05rem;
+      border-radius: 10px;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    a:hover {
+      background-color: #bbe1fa;
+      color: #0f4c75;
+      transform: translateY(-3px);
+    }
+  </style>
 </head>
+
 <body>
+  <div class="container">
     <h1>Python Topics</h1>
-    <p>Click on any link for more information.</p>
+    <p>Select a topic to explore detailed notes and examples</p>
+
     <ul>
-        <li><a href="loops.html">Loops - For / While nested loops</a></li>
-        <li><a href="data_structures.html">Core Data Structures</a></li>
-        <li><a href="database_management.html">Database Management with Python</a></li>
+      <li>
+        <a href="loops.html">Loops: For, While, and Nested Loops</a>
+      </li>
+      <li>
+        <a href="data_structures.html">Core Data Structures</a>
+      </li>
+      <li>
+        <a href="database_management.html">Database Management with Python</a>
+      </li>
     </ul>
+  </div>
 </body>
 </html>
+
