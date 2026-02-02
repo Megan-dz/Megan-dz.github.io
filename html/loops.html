@@ -34,20 +34,22 @@
             margin-top: 1.8rem;
         }
         pre {
-            background: #1e293b;
-            color: #e2e8f0;
+            background: #1f2937;                /* dark but not pure black */
+            color: #000000;                     /* ← Changed to solid black for max readability */
             padding: 16px;
             border-radius: 10px;
             overflow-x: auto;
             font-family: 'Consolas', 'Courier New', monospace;
             font-size: 0.98rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid #4b5563;         /* subtle border helps in all modes */
         }
         code {
-            background: #e2e8f0;
+            background: #e5e7eb;
             padding: 3px 6px;
             border-radius: 4px;
             font-family: 'Consolas', monospace;
+            color: #111827;
         }
         .highlight {
             background-color: #fef3c7;
@@ -111,7 +113,7 @@
     # code block (indented)
     print(variable)</code></pre>
 
-    <h3>Most Common Use: <code>range()</code></h3>
+    <h3>Most Common Use: range()</h3>
     <pre><code># 0 to 4
 for i in range(5):
     print(i)
@@ -146,11 +148,6 @@ for key in person:
 
     <h2>2. While Loops</h2>
     <p>The <code>while</code> loop runs <strong>as long as a condition is True</strong>. Great when you don’t know in advance how many times you need to loop.</p>
-
-    <h3>Basic Syntax</h3>
-    <pre><code>while condition:
-    # code block
-    # must eventually make condition False!</code></pre>
 
     <h3>Classic Examples</h3>
     <pre><code># Countdown
@@ -219,58 +216,17 @@ else:
     <h2>4. Nested Loops</h2>
     <p>A loop inside another loop — very common for working with 2D data (matrices, tables, grids, patterns).</p>
 
-    <h3>Classic Example – Coordinate pairs</h3>
-    <pre><code>for i in range(1, 4):        # outer
-    for j in range(1, 4):     # inner
-        print(f"({i},{j})", end=" ")
-    print()     # new line after each row</code></pre>
-
-    <h3>Multiplication Table (beautiful output)</h3>
-    <pre><code>for i in range(1, 11):
-    for j in range(1, 11):
+    <h3>Multiplication Table Example</h3>
+    <pre><code>for i in range(1, 6):
+    for j in range(1, 6):
         print(f"{i*j:4}", end=" ")
     print()</code></pre>
 
-    <h3>Pattern Printing Example</h3>
+    <h3>Star Pattern Example</h3>
     <pre><code>for i in range(5):
     for j in range(i + 1):
         print("*", end=" ")
     print()</code></pre>
-    <p>Output:</p>
-    <pre>* 
-* * 
-* * * 
-* * * * 
-* * * * *</pre>
-
-    <div class="tip">
-        <strong>Performance Tip:</strong> Nested loops = O(n²) time complexity (or worse). Be careful with large inputs.
-    </div>
-
-    <h2>Quick Comparison: for vs while</h2>
-
-    <table>
-        <tr>
-            <th>Feature</th>
-            <th><code>for</code> loop</th>
-            <th><code>while</code> loop</th>
-        </tr>
-        <tr>
-            <td>Best when</td>
-            <td>You know the number of iterations or have a sequence</td>
-            <td>You don’t know how many times to loop (condition-based)</td>
-        </tr>
-        <tr>
-            <td>Common pattern</td>
-            <td>Iterate list, range, string, files</td>
-            <td>User input, game loop, waiting for event</td>
-        </tr>
-        <tr>
-            <td>Forgetfulness risk</td>
-            <td>Low (automatic)</td>
-            <td>High (must update variable yourself)</td>
-        </tr>
-    </table>
 
     <p style="text-align: center; margin-top: 3rem;">
         <a href="Topics.html" class="back-link">← Back to Topics</a>
