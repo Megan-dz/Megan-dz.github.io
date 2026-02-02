@@ -1,0 +1,32 @@
+<!-- database_management.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Management with Python</title>
+</head>
+<body>
+    <h1>Database Management with Python</h1>
+    <p>Python makes it easy to manage databases using libraries like sqlite3 for lightweight databases or SQLAlchemy for more complex ones.</p>
+    
+    <h2>Using sqlite3</h2>
+    <p>SQLite is a built-in module for file-based databases. Example to create and insert data:</p>
+    <pre><code>import sqlite3
+
+conn = sqlite3.connect('example.db')
+c = conn.cursor()
+c.execute('''CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)''')
+c.execute("INSERT INTO users (name) VALUES ('Alice')")
+conn.commit()
+conn.close()</code></pre>
+    
+    <h2>Querying Data</h2>
+    <p>To fetch data: <code>c.execute("SELECT * FROM users")</code> and then <code>rows = c.fetchall()</code>.</p>
+    
+    <h2>Advanced Libraries</h2>
+    <p>For larger databases like PostgreSQL or MySQL, use libraries like psycopg2 or pymysql, or ORM like SQLAlchemy for object-relational mapping.</p>
+    
+    <a href="Topics.html">Back to Topics</a>
+</body>
+</html>
