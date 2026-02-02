@@ -4,33 +4,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loops - For / While Nested Loops</title>
+    <title>Python Loops – For, While & Nested Loops | Study Notes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(to bottom, #f8f9fc, #e9f0ff);
+            color: #2d3748;
+        }
+        h1 {
+            color: #1e40af;
+            border-bottom: 4px solid #3b82f6;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h2 {
+            color: #1e40af;
+            background: #dbeafe;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        h3 {
+            color: #2563eb;
+            margin-top: 1.8rem;
+        }
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 16px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.98rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        code {
+            background: #e2e8f0;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+        }
+        .highlight {
+            background-color: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .warning {
+            background-color: #fee2e2;
+            border-left: 5px solid #ef4444;
+            padding: 12px 16px;
+            margin: 1.2rem 0;
+            border-radius: 6px;
+        }
+        .tip {
+            background-color: #ecfdf5;
+            border-left: 5px solid #10b981;
+            padding: 12px 16px;
+            margin: 1.2rem 0;
+            border-radius: 6px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 2.5rem;
+            padding: 10px 20px;
+            background: #3b82f6;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            background: #2563eb;
+        }
+    </style>
 </head>
 <body>
-    <h1>Loops - For / While Nested Loops</h1>
-    <p>In Python, loops are used to execute a block of code repeatedly. There are two main types: for loops and while loops.</p>
-    
-    <h2>For Loops</h2>
-    <p>A for loop iterates over a sequence (like a list, tuple, or range). Example:</p>
-    <pre><code>for i in range(5):
-    print(i)</code></pre>
-    <p>This prints numbers 0 to 4.</p>
-    
-    <h2>While Loops</h2>
-    <p>A while loop runs as long as a condition is true. Example:</p>
-    <pre><code>count = 0
-while count < 5:
+
+    <h1>Python Loops – For, While & Nested Loops<br><small>Study Notes</small></h1>
+
+    <p>Loops allow us to <strong>repeat</strong> a block of code multiple times — essential for processing lists, generating patterns, reading data, games, simulations, and more.</p>
+
+    <h2>1. For Loops</h2>
+    <p>The <code>for</code> loop is used to <strong>iterate over a sequence</strong> (list, tuple, string, range, dictionary keys, etc.).</p>
+
+    <h3>Basic Syntax</h3>
+    <pre><code>for variable in sequence:
+    # code block (indented)
+    print(variable)</code></pre>
+
+    <h3>Most Common Use: <code>range()</code></h3>
+    <pre><code># 0 to 4
+for i in range(5):
+    print(i)
+
+# 2 to 9
+for i in range(2, 10):
+    print(i)
+
+# Even numbers 0–10
+for i in range(0, 11, 2):
+    print(i)    # 0 2 4 6 8 10</code></pre>
+
+    <h3>Iterating over different types</h3>
+    <pre><code># List
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+
+# String
+for char in "Python":
+    print(char)     # P y t h o n
+
+# Dictionary (keys by default)
+person = {"name": "Megan", "city": "Bengaluru"}
+for key in person:
+    print(key, "→", person[key])</code></pre>
+
+    <div class="tip">
+        <strong>Tip:</strong> Use <code>for item in collection</code> when you want to work directly with each element.<br>
+        Use <code>for i in range(len(collection))</code> when you need the <strong>index</strong>.
+    </div>
+
+    <h2>2. While Loops</h2>
+    <p>The <code>while</code> loop runs <strong>as long as a condition is True</strong>. Great when you don’t know in advance how many times you need to loop.</p>
+
+    <h3>Basic Syntax</h3>
+    <pre><code>while condition:
+    # code block
+    # must eventually make condition False!</code></pre>
+
+    <h3>Classic Examples</h3>
+    <pre><code># Countdown
+count = 5
+while count > 0:
     print(count)
-    count += 1</code></pre>
-    <p>This also prints numbers 0 to 4.</p>
-    
-    <h2>Nested Loops</h2>
-    <p>Nested loops are loops inside other loops, useful for multi-dimensional data. Example:</p>
-    <pre><code>for i in range(3):
-    for j in range(3):
-        print(i, j)</code></pre>
-    <p>This prints pairs like (0,0) to (2,2).</p>
-    
-    <a href="Topics.html">Back to Topics</a>
+    count -= 1
+print("Blast off!")</code></pre>
+
+    <pre><code># Keep asking until correct
+password = ""
+while password != "python123":
+    password = input("Enter password: ")
+print("Access granted!")</code></pre>
+
+    <div class="warning">
+        <strong>Warning – Infinite Loop Danger!</strong><br>
+        Always make sure the condition will eventually become <code>False</code>.<br>
+        Common mistake:
+        <pre><code>x = 5
+while x > 0:
+    print(x)    # Forgot to decrease x → infinite loop!</code></pre>
+    </div>
+
+    <h2>3. Loop Control Statements</h2>
+
+    <table>
+        <tr>
+            <th>Statement</th>
+            <th>What it does</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td><code>break</code></td>
+            <td>Exit the loop immediately</td>
+            <td>Stop when found: <code>for num in numbers: if num == target: break</code></td>
+        </tr>
+        <tr>
+            <td><code>continue</code></td>
+            <td>Skip rest of current iteration, go to next</td>
+            <td>Skip even: <code>if i % 2 == 0: continue</code></td>
+        </tr>
+        <tr>
+            <td><code>pass</code></td>
+            <td>Do nothing (placeholder)</td>
+            <td><code>if condition: pass</code></td>
+        </tr>
+        <tr>
+            <td><code>else</code> clause</td>
+            <td>Runs if loop finished <strong>without</strong> <code>break</code></td>
+            <td>Search: “not found” message</td>
+        </tr>
+    </table>
+
+    <h3>Example with <code>else</code></h3>
+    <pre><code>numbers = [4, 7, 2, 9, 1]
+target = 10
+
+for num in numbers:
+    if num == target:
+        print("Found!")
+        break
+else:
+    print("Target not found in list")</code></pre>
+
+    <h2>4. Nested Loops</h2>
+    <p>A loop inside another loop — very common for working with 2D data (matrices, tables, grids, patterns).</p>
+
+    <h3>Classic Example – Coordinate pairs</h3>
+    <pre><code>for i in range(1, 4):        # outer
+    for j in range(1, 4):     # inner
+        print(f"({i},{j})", end=" ")
+    print()     # new line after each row</code></pre>
+
+    <h3>Multiplication Table (beautiful output)</h3>
+    <pre><code>for i in range(1, 11):
+    for j in range(1, 11):
+        print(f"{i*j:4}", end=" ")
+    print()</code></pre>
+
+    <h3>Pattern Printing Example</h3>
+    <pre><code>for i in range(5):
+    for j in range(i + 1):
+        print("*", end=" ")
+    print()</code></pre>
+    <p>Output:</p>
+    <pre>* 
+* * 
+* * * 
+* * * * 
+* * * * *</pre>
+
+    <div class="tip">
+        <strong>Performance Tip:</strong> Nested loops = O(n²) time complexity (or worse). Be careful with large inputs.
+    </div>
+
+    <h2>Quick Comparison: for vs while</h2>
+
+    <table>
+        <tr>
+            <th>Feature</th>
+            <th><code>for</code> loop</th>
+            <th><code>while</code> loop</th>
+        </tr>
+        <tr>
+            <td>Best when</td>
+            <td>You know the number of iterations or have a sequence</td>
+            <td>You don’t know how many times to loop (condition-based)</td>
+        </tr>
+        <tr>
+            <td>Common pattern</td>
+            <td>Iterate list, range, string, files</td>
+            <td>User input, game loop, waiting for event</td>
+        </tr>
+        <tr>
+            <td>Forgetfulness risk</td>
+            <td>Low (automatic)</td>
+            <td>High (must update variable yourself)</td>
+        </tr>
+    </table>
+
+    <p style="text-align: center; margin-top: 3rem;">
+        <a href="Topics.html" class="back-link">← Back to Topics</a>
+    </p>
+
 </body>
 </html>
